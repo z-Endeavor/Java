@@ -2,6 +2,8 @@
 
 
 
+## Java基础
+
 ### 注释
 
 - 单行注释：注释一行文字（// 注释）
@@ -211,13 +213,144 @@ System.out.println(a+b+""); //输出为30
 
 
 
+### 包机制
+
+为了更好地组织类，Java提供了包机制，用于区别类名的命名空间。
+
+包的本质就是“文件夹”。
+
+```java
+// 包的语法格式
+package pkg1[.pkg2[.pkg3...]];
+```
+
+一般用**公司域名倒置**作为包名。
+
+```java
+// 导入其他包 (*代表导入所有类)
+import package1[.package2...].(classname|*);
+```
 
 
 
+### JavaDoc
+
+javadoc命令用来生成自己的API文档。
+
+参数信息：
+
+- @author 作者名 
+- @version 版本号
+- @since 指明需要最早使用的jdk版本
+- @param 参数名
+- @return 返回值情况
+- @throws 异常抛出情况
 
 
 
+## Java流程控制
 
+### 用户交互Scanner
+
+Scanner类可以来<u>获取用户的输入</u>。
+
+```java
+// 创建一个扫描器对象，用于接收键盘数据
+Scanner scanner = new Scanner(System.in);
+// 判断用户有没有输入字符串，使用hasNext()和hasNextLine()判断是否还有输入的数据
+if (scanner.hasNextLine()) {
+    // 使用next()和nextLine()获取输入的字符串
+    String str = scanner.nextLine();
+}
+
+// 属于IO流的类如果不关闭会一直占用资源，最好用完就关闭
+scanner.close();
+```
+
+> next()和nextLine()的区别：
+>
+> **next():**
+>
+> 		1. 一定要读取到有效字符后才可以结束输入。
+>   		2. 对输入有效字符之前遇到的空白，next()方法会自动将其去掉。
+>   		3. 只有输入有效字符后才将其后面输入的空白作为分隔符或者结束符。
+>   		4. next()<u>不能得到带有空格的字符串</u>。
+>
+> **nextLine():**
+>
+> 	1. <u>以Enter为结束符</u>，返回的是输入回车之前的所有字符。
+>  	2. 可以获得空白。
+
+
+
+### 顺序结构
+
+Java的基本结构就是顺序结构，顺序结构是最简单的算法结构。
+
+
+
+### 选择结构
+
+- if单选择结构
+
+  ```java
+  if (布尔表达式) {
+  	// 如果布尔表达式为true将执行的语句
+  }
+  ```
+
+- if双选择结构
+
+  ```java
+  if (布尔表达式) {
+  	// 如果布尔表达式为true
+  } else {
+      // 如果布尔表达式为false
+  }
+  ```
+
+- if多选择结构
+
+  ```java
+  if (布尔表达式1) {
+  	// 如果布尔表达式1为true
+  } else if (布尔表达式2) {
+      // 如果布尔表达式2为true
+  } else if (布尔表达式3) {
+      // 如果布尔表达式3为true
+  } else {
+      // 如果以上布尔表达式都不为true
+  }
+  ```
+
+- 嵌套的if结构
+
+  ```java
+  if (布尔表达式1) {
+  	// 如果布尔表达式1为true
+      if (布尔表达式2) {
+      	// 如果布尔表达式2为true
+  	}
+  }
+  ```
+
+- switch多选择结构
+
+  ```java
+  switch(expression) {
+      case value:
+          // 语句
+          break; // 可选
+      case value:
+          // 语句
+          break; //可选
+      // 可以有任意数量的case语句
+      default: // 可选
+          // 语句
+  }
+  ```
+
+  
 
 
 
